@@ -35,3 +35,7 @@ cmake .. && make
 
 # Dependencies or External Libraries
 Shoutout to adishavit for their library, [Argh](https://github.com/adishavit/argh)
+
+# Features Used
+Features used to classify Twitter Spambots
+![Alt text](Features_Tables.png?raw=true "Features")
