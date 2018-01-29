@@ -17,9 +17,11 @@ using namespace std;
 class Individual : public vector<bool> {
 public:
     Individual();
+    Individual(const string &chromosome);
 
     void generateRandom();
     void print() const;
+    void fullPrint() const;
     void init(bool allOnes = false);
     string to_string() const;
 

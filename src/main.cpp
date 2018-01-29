@@ -55,9 +55,14 @@ int main(int argc, const char *argv[]) {
     config.setClassifier(cmdl("machine").str());
     config.setComparison(cmdl("comparison").str());
 
-    runAndReportGA(false);
-    cout << endl;
-    runAndReportGA(true);
+//    runAndReportGA(false);
+//    cout << endl;
+//    runAndReportGA(true);
+
+    Individual temp("1110011010010111100110110000001000110010");
+    temp.fullPrint();
+
+    Evaluator::getInstance()->generateOutputFile(&temp);
 
     return 0;
 }

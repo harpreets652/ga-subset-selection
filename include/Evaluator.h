@@ -28,13 +28,13 @@ public:
 
     string getRunCommand(const string& filename);
     double getAccuracyFromOutput(const string &output);
+    void generateOutputFile(Individual *indiv);
 private:
     Evaluator();
     void init();
     string buildQuery(Individual &individual, unsigned int getReal);
     void createFileHeader(ofstream& fout, Individual &individual);
     void createDataPoints(ofstream& fout, result &dataPoint, Individual &individual);
-    void generateOutputFile(Individual *indiv);
 
     static Evaluator* instance;
     string wekaLocation;

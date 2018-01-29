@@ -102,13 +102,7 @@ void GA::printFeaturesOfBestIndividual() const {
     cout << "Best Individual: ";
     bestIndividualEver.print();
     // go through and print them out
-    for (int i = 0; i < bestIndividualEver.size(); i++) {
-        if (bestIndividualEver[i]) {
-            if (i < 10)
-                cout << "0";
-            cout << i << " -- " << config.getFSMap().at(i) << endl;
-        }
-    }
+    bestIndividualEver.fullPrint();
 }
 
 #endif

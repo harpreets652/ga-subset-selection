@@ -3,6 +3,7 @@
 
 #include <utility>
 #include <Timer.h>
+#include <cassert>
 
 #include "Individual.h"
 #include "config.h"
@@ -11,6 +12,15 @@ Config config;
 
 Individual::Individual() : accuracy(0.0), distance(0.0), normalizedProb(0.0), rank(0) {
     resize(config.NUM_FEATURES);
+}
+
+Individual::Individual(const string &chromosome) : accuracy(0.0), distance(0.0), normalizedProb(0.0), rank(0) {
+    assert(chromosome.size() == config.NUM_FEATURES);
+    resize(config.NUM_FEATURES);
+
+    for (size_t i = 0; i < size(); i++) {
+        (*this)[i] = (chromosome[i] == '1');
+    }
 }
 
 void Individual::init(bool allOnes) {
@@ -35,6 +45,14 @@ void Individual::print() const {
         cout << at(i);
     }
     cout << " - [accuracy: " << accuracy << ", numBits: " << numFeaturesActive << ", time: " << timeTaken << "]" << endl;
+}
+
+void Individual::fullPrint() const {
+    for (size_t i = 0; i < size(); i++) {
+        if (at(i)) {
+            cout << config.getFSMap().at(i) << endl;
+        }
+    }
 }
 
 string Individual::to_string() const {
